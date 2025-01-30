@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado de Archivos</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase (versión compatibilidad para navegadores) -->
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cifrado y Descifrado de Archivos</h1>
+
+        <!-- Botón de inicio de sesión con Google -->
+        <div id="auth-section">
+            <button id="google-login">Iniciar sesión con Google</button>
+            <div id="user-info" style="display: none;">
+                <p>Bienvenido, <span id="user-nickname"></span>!</p>
+                <button id="logout">Cerrar sesión</button>
+            </div>
+        </div>
+
+        <!-- Instrucciones -->
+        <div class="instructions">
+            <h2>Instrucciones</h2>
+            <ol>
+                <li><strong>Cifrar un archivo:</strong> Sube un archivo y haz clic en "Cifrar". Se generará un archivo cifrado y una clave cifrada.</li>
+                <li><strong>Descifrar un archivo:</strong> Sube el archivo cifrado y la clave cifrada, luego haz clic en "Descifrar".</li>
+                <li><strong>Foro:</strong> Puedes enviar mensajes al foro para preguntar o compartir ideas.</li>
+            </ol>
+        </div>
+
+        <!-- Formulario de cifrado -->
+        <form id="cifrarForm">
+            <h2>Cifrar Archivo</h2>
+            <input type="file" id="fileToEncrypt" required>
+            <button type="submit">Cifrar</button>
+        </form>
+
+        <!-- Formulario de descifrado -->
+        <form id="descifrarForm">
+            <h2>Descifrar Archivo</h2>
+            <input type="file" id="fileToDecrypt" required>
+            <input type="file" id="keyFile" required>
+            <button type="submit">Descifrar</button>
+        </form>
+
+        <!-- Resultados -->
+        <div id="result"></div>
+
+        <!-- Mini Foro -->
+        <div class="forum">
+            <h2>Mini Foro</h2>
+            <form id="forumForm">
+                <input type="text" id="forumMessage" placeholder="Escribe tu mensaje..." required>
+                <button type="submit">Enviar</button>
+            </form>
+            <div id="forumMessages"></div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
